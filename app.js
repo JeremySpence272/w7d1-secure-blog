@@ -1,10 +1,12 @@
 // app.js
-const express = require('express');
+const express = require("express");
 const app = express();
 const userRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const CONNECTDB = require("./config/config");
-const PORT = process.env.PORT || 5000;
+require("dotenv").config();
+
+const PORT = process.env.PORT || 3001;
 
 // Middlewares
 app.use(express.json());
@@ -19,5 +21,5 @@ app.use("/api/post", postRoute);
 
 // Listen to the port
 app.listen(PORT, () => {
-    console.log(`Listening to port ${PORT}`);
+	console.log(`Listening to port ${PORT}`);
 });
